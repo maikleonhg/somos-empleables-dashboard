@@ -1,0 +1,13 @@
+# Python / Standard
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Streamlit
+.streamlit/secrets.toml
+
+# System
+.DS_Store
+
+# Project Data (Recommended to keep private data out of git)

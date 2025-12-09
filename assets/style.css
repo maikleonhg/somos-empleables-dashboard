@@ -1,0 +1,194 @@
+/* Force Light Theme Background - Darker Gray */
+.stApp {
+    background-color: #e6e6e6;
+    color: #333333;
+}
+
+/* Hide Streamlit Menu */
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+/* Header Styling */
+h1 {
+    color: #29b5e8 !important;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #333333 !important;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+}
+
+/* Metric Card Wrapper Styling */
+/* Metric Card Wrapper Styling - OPTIMIZED */
+/* Removed aggressive display:flex and min-height that broke Streamlit layout */
+div[data-testid="stMetric"],
+div.metric-card {
+    background-color: #ffffff !important;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e5e7eb;
+}
+
+/* Removing aggressive internal alignment fixes that broke layout */
+
+/* Metric Label Styling */
+div[data-testid="stMetricLabel"] {
+    font-size: 14px !important;
+    color: #666666 !important;
+    font-weight: 500 !important;
+}
+
+div[data-testid="stMetricValue"] {
+    font-size: 26px !important;
+    color: #333333 !important;
+    font-weight: 700;
+}
+
+/* FIX: Ensure sparkline charts inside metrics have transparent background */
+/* This prevents them from inheriting the gray global dashboard background if they are treated as separate layers */
+[data-testid="stMetric"] [data-testid="stMetricChart"] {
+    background-color: transparent !important;
+}
+
+/* If Streamlit uses canvas for sparklines */
+[data-testid="stMetric"] canvas {
+    background-color: transparent !important;
+}
+
+/* Custom Minimal Progress Bar Styling */
+.custom-progress-bar-container {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    height: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.custom-progress-bar-fill {
+    height: 100%;
+    background-color: #28a745;
+    /* Green */
+    border-radius: 10px;
+}
+
+/* Chart Container Styling (Card look) */
+/* Chart Container Styling (Card look) */
+.chart-card {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 25px;
+    /* Uniformar altura de tarjetas de gráficos */
+    min-height: 450px;
+    /* Ajusta según necesidad */
+    /* display: flex; REMOVED complex flex logic to avoid Streamlit conflicts */
+    /* flex-direction: column; */
+}
+
+/*
+.chart-card h3,
+.chart-card h2,
+.chart-card h4 {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+*/
+
+/* FIX: Prevent Plotly iframes from overlapping */
+iframe {
+    z-index: 0 !important;
+    position: relative !important;
+}
+
+/* Native Streamlit Plotly Chart Styling */
+[data-testid="stPlotlyChart"] {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Sidebar Styling - Reset to Light/White to allow custom text colors */
+[data-testid="stSidebar"] {
+    background-image: none !important;
+    background-color: #ffffff !important;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Sidebar Text Styling */
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    color: #333333 !important;
+    font-weight: 600 !important;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label {
+    color: #828282 !important;
+    /* Subtitles/Labels in Gray */
+    font-weight: 500;
+}
+
+/* Custom Backgrounds for Multiselect Containers (Simulating Section Colors if possible, or just general selector bg) */
+.stMultiSelect div[data-baseweb="select"]>div {
+    background-color: #F5F7FA !important;
+    border: 1px solid #e0e0e0;
+}
+
+/* Radio Buttons as Pills */
+.stRadio>div[role="radiogroup"] {
+    background-color: transparent;
+}
+
+.stRadio>div[role="radiogroup"]>label {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    /* Pill shape */
+    margin-bottom: 5px;
+    transition: all 0.2s;
+    cursor: pointer;
+    color: #333333 !important;
+}
+
+.stRadio>div[role="radiogroup"]>label:hover {
+    border-color: #29b5e8;
+}
+
+/* Active State for Radio (Approximation - Streamlit adds data-checked or similar classes, but hard to target reliably without exact DOM knowledge of current version. 
+   We often rely on the fact that selected input sibling is checked. CSS :has is decent.) */
+.stRadio>div[role="radiogroup"]>label:has(input:checked) {
+    background-color: #E8F5FE !important;
+    /* Soft Blue */
+    border: 1px solid #29b5e8 !important;
+    /* Strong Blue */
+    color: #29b5e8 !important;
+    font-weight: bold;
+}
+
+/* General Padding */
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
